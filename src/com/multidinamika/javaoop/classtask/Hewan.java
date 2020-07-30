@@ -48,15 +48,16 @@ public class Hewan {
                 '}';
     }
 
-    public String statusHewan(List<Hewan> data){
+    public void statusHewan(List<Hewan> data){
         if (data instanceof List){
             data.stream().map(s -> {
-                if(s.umur < 1){
-                    return "Belumcukup Umur";
-                }
+                String result = "";
+                if (s.umur < 1) result = "Belum siap diternakan";
+                else if (s.umur >=1 && s.umur <=4) result = "Siap diternakan";
+                else if(s.umur > 5) result = "Hewan sudah tua";
+
+                return result;
             }).forEach(System.out::println);
         }
-
-        return "";
     }
 }
