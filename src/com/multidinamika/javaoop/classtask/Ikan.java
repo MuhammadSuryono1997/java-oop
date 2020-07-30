@@ -5,7 +5,7 @@ import java.util.List;
 public class Ikan extends Hewan {
 
     public Ikan(){
-        super("Kambing","Invertebrata",2);
+        super("Lauhan","Vertebrata",2);
     }
 
     public int hitungBerat(int bobot){

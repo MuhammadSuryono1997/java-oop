@@ -40,7 +40,7 @@ public class Hewan {
         this.umur = umur;
     }
 
-    public String profilHewan() {
+    public Object profilHewan() {
         return "{" +
                 "\"nama\": \"" + nama + '\"' +
                 ",\"jenis\": \"" + jenis + '\"' +
@@ -52,9 +52,9 @@ public class Hewan {
         if (data instanceof List){
             data.stream().map(s -> {
                 String result = "";
-                if (s.umur < 1) result = "Belum siap diternakan";
-                else if (s.umur >=1 && s.umur <=4) result = "Siap diternakan";
-                else if(s.umur > 5) result = "Hewan sudah tua";
+                if (s.umur < 1) result = s.nama+" Belum siap diternakan";
+                else if (s.umur >=1 && s.umur <=4) result = s.nama+" Siap diternakan";
+                else if(s.umur > 5) result = s.nama+" Hewan sudah tua";
 
                 return result;
             }).forEach(System.out::println);

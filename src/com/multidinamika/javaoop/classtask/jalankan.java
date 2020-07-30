@@ -1,17 +1,24 @@
 package com.multidinamika.javaoop.classtask;
 
-import jdk.dynalink.linker.LinkerServices;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class jalankan {
     public static void main(String[] args) {
         Hewan hewan = new Hewan();
-        var data = new ArrayList<Hewan>();
-        data.add(unggas());
-        data.add(reptile());
+
+        var newData = new ArrayList<Hewan>();
+        newData.add(unggas());
+        newData.add(reptile());
+
+
+        ArrayList data = new ArrayList<Hewan>();
+        data.addAll(0,newData);
+
+        System.out.println("\n--PROFILE REPTILE DAN UNGGAS--\n");
+        System.out.println(unggas().profilHewan());
+        System.out.println(reptile().profilHewan());
+        System.out.println("\n--REPTILE DAN UNGGAS--\n");
+        hewan.statusHewan(newData);
         System.out.println("\n--MURAI--\n");
         murai();
         System.out.println("\n--TENGIRI--\n");
@@ -52,11 +59,15 @@ public class jalankan {
 
         var hewan = new ArrayList<Hewan>();
         hewan.add(ikan);
+        hewan.add(new Ikan());
 
         System.out.println(ikan.profilHewan());
+        System.out.println(new Ikan().profilHewan());
         ikan.statusHewan(hewan);
-        System.out.println(ikan.hitungBerat(10));
-        System.out.println(ikan.hitungBerat(10,5));
+        System.out.println("Berat "+ikan.getNama()+" tanpa kandungan air = "+ikan.hitungBerat(10));
+        System.out.println("Berat "+ikan.getNama()+" dengan kandungan air = "+ikan.hitungBerat(10,5));
+        System.out.println("Berat "+new Ikan().getNama()+" tanpa kandungan air = "+ikan.hitungBerat(10));
+        System.out.println("Berat "+new Ikan().getNama()+" dengan kandungan air = "+ikan.hitungBerat(10,5));
 
         return ikan;
     }
