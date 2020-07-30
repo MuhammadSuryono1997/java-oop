@@ -9,22 +9,22 @@ import java.util.List;
 public class jalankan {
     public static void main(String[] args) {
         Hewan hewan = new Hewan();
-        var data = new ArrayList<Object>();
+        var data = new ArrayList<Hewan>();
         data.add(unggas());
         data.add(reptile());
+        hewan.statusHewan(data);
         System.out.println(data);
     }
 
-    private static String unggas(){
-        Hewan hewan = new Hewan("merpati","vertebrata",1);
-        return hewan.profilHewan();
+    private static Hewan unggas(){
+        return new Hewan("merpati","vertebrata",1);
     }
 
-    private static String reptile(){
+    private static Hewan reptile(){
         Hewan hewan = new Hewan();
         hewan.setNama("buaya");
         hewan.setJenis("vertebrata");
         hewan.setUmur(2);
-        return hewan.profilHewan();
+        return hewan;
     }
 }
